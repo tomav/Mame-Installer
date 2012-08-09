@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ $# -ne 1 ]
+if [ $# -lt 1 ]
 then
 	echo "Error: Missing argument 'folder_name'"
   echo "Usage: ./mame_installer.sh folder_name [ -j3 || -j5 ]"
