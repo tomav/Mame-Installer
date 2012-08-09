@@ -13,7 +13,7 @@ MAME stands for Multiple Arcade Machine Emulator. When used in conjunction with 
 MAME can be downloaded from it official website <http://mamedev.org/> but is only available as Windows executables.  
 If you want to run MAME under OSX / Linux, you have to :
 
-* download it from the great <http://sdlmame.lngn.net/>
+* download it from the great <http://sdlmame.lngn.net/> (OSX) or _apt-get install sdlmame_ (Debian)
 * compile it by yourself
 
 This script should help you in this second case.
@@ -23,37 +23,45 @@ This script should help you in this second case.
 On OSX :
 
 * Latest [_XCode_](http://itunes.apple.com/fr/app/xcode/id497799835?mt=12) from AppStore
-* _SDL.Framework_ from <http://www.libsdl.org/download-1.2.php>
+* _SDL.Framework_ from <http://www.libsdl.org/download-1.2.php> 
 
 On Linux :
 
-* make / gcc / and other basics compile tools
-* libsdl ?
+* build-essential
+* gconf2
+* libgconf2-dev
+* libgtk2.0-dev
+* libsdl1.2-dev
+* libsdl-ttf2.0-dev
 
 ## Howto
 
 Basic usage :
 
-    ./mame_installer.sh ~/Desktop/MAME
+    bash mame_installer.sh ~/Desktop/MAME
 
-Advanced and faster compile :
+Optional param for faster build :
 
     # for dual-core processors
-    ./mame_installer.sh ~/Desktop/MAME -j3
+    bash mame_installer.sh ~/Desktop/MAME -j3
     
     # for quad-core processors
-    ./mame_installer.sh ~/Desktop/MAME -j5
+    bash mame_installer.sh ~/Desktop/MAME -j5
 
-Now wait until the end of compilation (~35min@basic / ~XXmin@j3 on my MBA 1.8Ghz Intel Core i7)
+Now wait until the end of compilation (~35min@basic / ~25min@j3 on my MBA 1.8Ghz Intel Core i7)
 You should find a fresh _mame64_ binary ready to use.
 
 
 ## Tested on 
 
-* Mac OSX 10.8 / XCode 4.4.1
+* [PASSED] Mac OSX 10.8 / XCode 4.4.1
+* [FAILED] Debian GNU/Linux Squeeze 2.6.32-5-amd64 (gcc4.4 issue ?)
 
 ## TODO
 
 * Add a check on install folder to ask for files overwrite
-* Check if needed tools are installed (curl / make / libsdl / ...)
 * Don't hardcode files URL to fetch which are version specific...
+
+## Feedbacks
+
+Do not hesitate to contribute !

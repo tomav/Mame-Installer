@@ -11,7 +11,7 @@ if [ ! -d "$1" ]; then
 	echo "> Creating folder $1"
 	mkdir $1
 else
-  echo "Error: "$1" folder already exists"
+  echo "Error: "$1" folder already exists. Check / remove folder before."
   exit 1
 fi
 
