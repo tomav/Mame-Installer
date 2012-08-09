@@ -1,6 +1,6 @@
 # Mame-Installer
 
-A simple shell script to download source, patch and compile MAME on OSX / Linux using SDL Framework.  
+A simple shell script to download source, patch and compile MAME ([SDLMAME](http://rbelmont.mameworld.info/?page_id=163)) on OSX / Linux using SDL Framework.  
 Current version if __0.146u4__.
 
 ## What is MAME ?
@@ -29,6 +29,24 @@ On Linux :
 
 * make / gcc / and other basics compile tools
 * libsdl ?
+
+## Howto
+
+Basic usage :
+
+    ./mame_installer.sh ~/Desktop/MAME
+
+Advanced and faster compile :
+
+    # for dual-core processors
+    ./mame_installer.sh ~/Desktop/MAME -j3
+    
+    # for quad-core processors
+    ./mame_installer.sh ~/Desktop/MAME -j5
+
+Now wait until the end of compilation (~35min@basic / ~XXmin@j3 on my MBA 1.8Ghz Intel Core i7)
+You should find a fresh _mame64_ binary ready to use.
+
 
 ## Tested on 
 
