@@ -18,7 +18,7 @@ fi
 # Source files
 URL_ENDINGS="http://rbelmont.mameworld.info/endings.zip"
 URL_MAME_SOURCE="http://mamedev.mameworld.info/releases/mame0146s.zip"
-URL_MAME_PATCHS=("http://mamedev.org/updates/0146u1_diff.zip" "http://mamedev.org/updates/0146u2_diff.zip" "http://mamedev.org/updates/0146u3_diff.zip" "http://mamedev.org/updates/0146u4_diff.zip")
+URL_MAME_PATCHS=("http://mamedev.org/updates/0146u1_diff.zip" "http://mamedev.org/updates/0146u2_diff.zip" "http://mamedev.org/updates/0146u3_diff.zip" "http://mamedev.org/updates/0146u4_diff.zip" "http://mamedev.org/updates/0146u5_diff.zip")
 
 # Downloading
 cd $1
@@ -42,13 +42,19 @@ unzip -qq '*.zip'
 unzip	-qq mame.zip
 
 # Patching
-echo "> Patching files"
+echo "> Executing endings"
 ./endings
-patch -s -p0 < 0146u1.diff
-patch -s -p0 < 0146u2.diff
-patch -s -p0 < 0146u3.diff
-patch -s -p0 < 0146u4.diff
+index=1
+for i in "${URL_MAME_PATCHS[@]}"
+do
+  :
+	echo "> Patching source #$index"
+	patch -p0 < 0146u$index.diff
+	((index++))
+done
+
 
 # Building
 echo "> Let's build ! (have a break, it takes long long time...)"
 make $2 > mame64_build.log
+echo "> [ DONE ] SDLMame 0.146u5 has been successfully built."
