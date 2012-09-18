@@ -17,8 +17,7 @@ fi
 
 # Source files
 URL_ENDINGS="http://rbelmont.mameworld.info/endings.zip"
-URL_MAME_SOURCE="http://mamedev.mameworld.info/releases/mame0146s.zip"
-URL_MAME_PATCHS=("http://mamedev.org/updates/0146u1_diff.zip" "http://mamedev.org/updates/0146u2_diff.zip" "http://mamedev.org/updates/0146u3_diff.zip" "http://mamedev.org/updates/0146u4_diff.zip" "http://mamedev.org/updates/0146u5_diff.zip")
+URL_MAME_SOURCE="http://mamedev.mameworld.info/releases/mame0147s.zip"
 
 # Downloading
 cd $1
@@ -27,14 +26,6 @@ echo "> Downloading Endings"
 curl -O $URL_ENDINGS -A "$USER_AGENT" -s
 echo "> Downloading MAME Source"
 curl -O $URL_MAME_SOURCE "-A $USER_AGENT" -s 
-index=1
-for i in "${URL_MAME_PATCHS[@]}"
-do
-  :
-	echo "> Downloading MAME Patchs #$index"
-	curl -O $i -A "$USER_AGENT" -s
-	((index++))
-done
 
 # Unziping
 echo "> Unziping files"
@@ -44,17 +35,8 @@ unzip	-qq mame.zip
 # Patching
 echo "> Executing endings"
 ./endings
-index=1
-for i in "${URL_MAME_PATCHS[@]}"
-do
-  :
-	echo "> Patching source #$index"
-	patch -p0 < 0146u$index.diff
-	((index++))
-done
-
 
 # Building
 echo "> Let's build ! (have a break, it takes long long time...)"
 make $2 > mame64_build.log
-echo "> [ DONE ] SDLMame 0.146u5 has been successfully built."
+echo "> [ DONE ] SDLMame 0.147 has been successfully built."
