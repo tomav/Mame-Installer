@@ -54,7 +54,7 @@ You should find a fresh _mame64_ binary ready to use.
 
 ## Tested on 
 
-* [PASSED] Mac OSX 10.8 / XCode 4.4.1
+* [PASSED] Mac OSX 10.8 / XCode 4.5.1
 * [FAILED] Debian GNU/Linux Squeeze 2.6.32-5-amd64 (gcc4.4 issue ?)
 
 ## TODO
