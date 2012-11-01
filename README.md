@@ -1,7 +1,7 @@
 # Mame-Installer
 
 A simple shell script to download source, patch and compile MAME ([SDLMAME](http://rbelmont.mameworld.info/?page_id=163)) on OSX / Linux using SDL Framework.  
-Current version if __0.147u1__.
+Current version if __0.147u2__.
 
 ## What is MAME ?
 

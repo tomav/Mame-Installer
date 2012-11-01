@@ -18,7 +18,7 @@ fi
 # Source files
 URL_ENDINGS="http://rbelmont.mameworld.info/endings.zip"
 URL_MAME_SOURCE="http://mamedev.mameworld.info/releases/mame0147s.zip"
-URL_MAME_PATCHS=("http://mamedev.org/updates/0147u1_diff.zip")
+URL_MAME_PATCHS=("http://mamedev.org/updates/0147u1_diff.zip" "http://mamedev.org/updates/0147u2_diff.zip")
 
 # Downloading
 cd $1
@@ -56,4 +56,4 @@ done
 # Building
 echo "> Let's build ! (have a break, it takes long long time...)"
 make $2 > mame64_build.log
-echo "> [ DONE ] SDLMame 0.147u1 has been successfully built."
+echo "> [ DONE ] SDLMame 0.147u2 has been successfully built."
